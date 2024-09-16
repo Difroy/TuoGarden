@@ -97,6 +97,11 @@ public class PlantAPI {
 			repo.deleteById(id);
 		}
 		
+	
+		
+		
+		
+		
 		@GetMapping("/plants/bystatus/{s}")
 		public List<Plant> getPlantsByStatus(@PathVariable("s") String status) {
 			
