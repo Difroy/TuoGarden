@@ -3,7 +3,9 @@ package com.generation.garden.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -88,8 +90,12 @@ public class PlantAPI {
 		}
 	
 	
-	
-	
+	//MAPPATURA PARAMETRICA. L'id è il paramentro di questa mappatura.
+		@DeleteMapping("/plants/{id}")
+		public void deletePlant(@PathVariable("id")long id)
+		{
+			repo.deleteById(id);
+		}
 	
 	
 	
