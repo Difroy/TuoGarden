@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.generation.garden.model.entities.Plant;
@@ -38,5 +41,21 @@ public class PlantAPI {
 	@GetMapping("/plants")
 	public List<Plant> getPlants(){
 		return repo.findAll();
+	}
+	
+	
+	/**
+	 * quando l'utente chiama l'indirizzo /plants col mentodo post io eseguirò non il metodo getPlant() ma il metodo insertPlant il COROPO della request deve contenere un JSON con i dati della pianta.
+	 * @param newPlant
+	 * @return
+	 * */
+	
+	
+	
+	
+	@PostMapping("/plants")
+	public Plant insertPlant(@RequestBody Plant newPlant) {
+		return repo.save(newPlant);
+		
 	}
 }
